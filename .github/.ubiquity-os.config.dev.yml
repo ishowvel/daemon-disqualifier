@@ -1,15 +1,16 @@
 plugins:
   - uses:
     - plugin: ishowvel/daemon-disqualifier:compute.yml@testing
-          with:
-            disqualification: "2 minutes"
-            warning: "1 minutes"
-            watch:
-              optOut:
-                - "repoName"
-                - "repoName2"
-            eventWhitelist:
-              - "review_requested"
-              - "ready_for_review"
-              - "commented"
-              - "committed"
+      with:
+        disqualification: "2 minutes"
+        warning: "1 minutes"
+        watch:
+          optOut:
+            - "repoName"
+            - "repoName2"
+        eventWhitelist:
+          - "review_requested"
+          - "ready_for_review"
+          - "commented"
+          - "committed"
+    
