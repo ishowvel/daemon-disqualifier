@@ -72,6 +72,10 @@ export async function updateTaskReminder(context: ContextPlugin, repo: ListForOr
   });
 
   const disqualificationTimeDifference = disqualification - warning;
+  logger.info(
+    `Normal disqualification time ${disqualificationTimeDifference},  Speedy disqualification time (if enabled) ${prioritySpeed ? disqualificationTimeDifference / priorityLevel : disqualificationTimeDifference}`
+  );
+  logger.info(`Normal warning time ${warning},  Speedy warning time (if enabled) ${prioritySpeed ? warning / priorityLevel : warning}`);
 
   if (lastReminderComment) {
     const lastReminderTime = DateTime.fromISO(lastReminderComment.created_at);
