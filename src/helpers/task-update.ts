@@ -70,7 +70,8 @@ export async function updateTaskReminder(context: ContextPlugin, repo: ListForOr
     lastReminderComment: lastReminderComment ? DateTime.fromISO(lastReminderComment.created_at).toLocaleString(DateTime.DATETIME_MED) : "none",
     mostRecentActivityDate: mostRecentActivityDate.toLocaleString(DateTime.DATETIME_MED),
   });
-
+  logger.info(`Priority ${priorityLevel}`);
+  logger.info(`Priority Speed ${prioritySpeed}`);
   const disqualificationTimeDifference = disqualification - warning;
   logger.info(
     `Normal disqualification time ${disqualificationTimeDifference},  Speedy disqualification time (if enabled) ${prioritySpeed ? disqualificationTimeDifference / priorityLevel : disqualificationTimeDifference}`
