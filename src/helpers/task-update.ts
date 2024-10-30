@@ -70,13 +70,13 @@ export async function updateTaskReminder(context: ContextPlugin, repo: ListForOr
     lastReminderComment: lastReminderComment ? DateTime.fromISO(lastReminderComment.created_at).toLocaleString(DateTime.DATETIME_MED) : "none",
     mostRecentActivityDate: mostRecentActivityDate.toLocaleString(DateTime.DATETIME_MED),
   });
-  logger.debug(`Priority ${priorityLevel}`);
-  logger.debug(`Priority Speed ${prioritySpeed}`);
+  logger.info(`Priority ${priorityLevel}`);
+  logger.info(`Priority Speed ${prioritySpeed}`);
   const disqualificationTimeDifference = disqualification - warning;
-  logger.info(
-    `Normal disqualification time ${disqualificationTimeDifference},  Speedy disqualification time (if enabled) ${prioritySpeed ? disqualificationTimeDifference / priorityLevel : disqualificationTimeDifference}`
-  );
-  logger.info(`Normal warning time ${warning},  Speedy warning time (if enabled) ${prioritySpeed ? warning / priorityLevel : warning}`);
+  // logger.info(
+  //   `Normal disqualification time ${disqualificationTimeDifference},  Speedy disqualification time (if enabled) ${prioritySpeed ? disqualificationTimeDifference / priorityLevel : disqualificationTimeDifference}`
+  // );
+  // logger.info(`Normal warning time ${warning},  Speedy warning time (if enabled) ${prioritySpeed ? warning / priorityLevel : warning}`);
 
   if (lastReminderComment) {
     const lastReminderTime = DateTime.fromISO(lastReminderComment.created_at);
